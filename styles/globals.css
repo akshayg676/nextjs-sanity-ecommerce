@@ -130,7 +130,23 @@ span.text-red {
 
 .hero-banner-container {
   padding: 100px 40px;
-  background-color: #dcdcdc;
+  /* background-color: #dcdcdc; */
+  /* background-image: linear-gradient(
+    to right top,
+    #e1be7c,
+    #c7975f,
+    #ab7146,
+    #8e4e31,
+    #6f2b1f
+  ); */
+  background-image: linear-gradient(
+    to right top,
+    #6f2b1f,
+    #8e4e31,
+    #ab7146,
+    #c7975f,
+    #e1be7c
+  );
   border-radius: 15px;
   position: relative;
   height: 500px;
