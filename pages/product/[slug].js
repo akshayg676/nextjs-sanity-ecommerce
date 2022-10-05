@@ -1,11 +1,17 @@
 import React, { useState } from "react";
-import { AiFillStar, AiOutlineStar } from "react-icons/ai";
+import { useStateContext } from "../../context/StateContext";
+import {
+  AiFillStar,
+  AiOutlineMinus,
+  AiOutlinePlus,
+  AiOutlineStar,
+} from "react-icons/ai";
 import { Product } from "../../components";
 import { client, urlFor } from "../../lib/client";
 
 const ProductDetails = ({ productDetail, similarProduct }) => {
-  console.log(productDetail);
   const { image, name, details, price } = productDetail;
+  const { qty, incQty, decQty, onAdd } = useStateContext();
   const [index, setIndex] = useState(0);
   return (
     <div>
@@ -13,7 +19,6 @@ const ProductDetails = ({ productDetail, similarProduct }) => {
         <div>
           <div className="image-container">
             <img
-              //   src={urlFor(image && image[index])}
               src={urlFor(image && image[index])}
               className="product-detail-image"
             />
@@ -47,7 +52,7 @@ const ProductDetails = ({ productDetail, similarProduct }) => {
           <h4>Details: </h4>
           <p>{details}</p>
           <p className="price">₹{price}</p>
-          {/* <div className="quantity">
+          <div className="quantity">
             <h3>Quantity:</h3>
             <p className="quantity-desc">
               <span className="minus" onClick={decQty}>
@@ -63,14 +68,14 @@ const ProductDetails = ({ productDetail, similarProduct }) => {
             <button
               type="button"
               className="add-to-cart"
-              onClick={() => onAdd(product, qty)}
+              onClick={() => onAdd(productDetail, qty)}
             >
               Add to Cart
             </button>
-            <button type="button" className="buy-now" onClick={handleBuyNow}>
+            {/* <button type="button" className="buy-now" onClick={handleBuyNow}>
               Buy Now
-            </button>
-          </div> */}
+            </button> */}
+          </div>
         </div>
       </div>
 
