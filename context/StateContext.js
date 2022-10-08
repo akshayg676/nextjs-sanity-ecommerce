@@ -11,6 +11,27 @@ const StateContext = ({ children }) => {
   let foundProduct;
   let index;
 
+  useEffect(() => {
+    const localCartItems = localStorage.getItem("cartItems");
+    const localTotalPrice = localStorage.getItem("totalPrice");
+    const localTotalQuantities = localStorage.getItem("totalQuantities");
+    setCartItems(localCartItems ? JSON.parse(localCartItems) : []);
+    setTotalPrice(localTotalPrice ? JSON.parse(localTotalPrice) : 0);
+    setTotalQuantities(
+      localTotalQuantities ? JSON.parse(localTotalQuantities) : 0
+    );
+  }, []);
+
+  useEffect(() => {
+    localStorage.setItem("cartItems", JSON.stringify(cartItems));
+  }, [cartItems]);
+  useEffect(() => {
+    localStorage.setItem("totalPrice", JSON.stringify(totalPrice));
+  }, [totalPrice]);
+  useEffect(() => {
+    localStorage.setItem("totalQuantities", JSON.stringify(totalQuantities));
+  }, [totalQuantities]);
+
   const incQty = () => {
     setQty((prevQty) => prevQty + 1);
   };
