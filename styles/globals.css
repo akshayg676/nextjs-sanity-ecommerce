@@ -28,7 +28,7 @@ a {
 .navbar-container {
   display: flex;
   justify-content: space-between;
-  margin: 6px 18px;
+  margin: 20px 18px;
   position: relative;
 }
 .marquee-text {
@@ -69,10 +69,10 @@ span.text-red {
 }
 .logo {
   color: gray;
-  font-size: 18px;
+  font-size: 28px;
 }
 .cart-icon {
-  font-size: 25px;
+  font-size: 30px;
   color: gray;
   cursor: pointer;
   position: relative;
